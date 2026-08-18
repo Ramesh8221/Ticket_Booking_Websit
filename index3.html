@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Ticket Booking</title>
+
+    <style>
+        /* Page Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        header {
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Navigation */
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: yellow;
+        }
+
+        /* Main Section */
+        .container {
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Event Cards Layout */
+        .event-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Event Card */
+        .event-card {
+            background-color: white;
+            width: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .event-card:hover {
+            transform: scale(1.03);
+        }
+
+        /* Event Image */
+        .event-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Card Content */
+        .event-details {
+            padding: 15px;
+        }
+
+        .event-details h3 {
+            margin-top: 0;
+            color: #007BFF;
+        }
+
+        .event-details p {
+            margin: 8px 0;
+            color: #444;
+        }
+
+        /* Button */
+        .book-btn {
+            display: block;
+            width: 100%;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 0 0 12px 12px;
+        }
+
+        .book-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Online Ticket Booking</h1>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Events</a>
+            <a href="#">Booking</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Events Section -->
+    <div class="container">
+
+        <h2>Upcoming Events</h2>
+
+        <div class="event-container">
+
+            <!-- Event 1 -->
+            <div class="event-card">
+                <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a"
+                    alt="Concert">
+
+                <div class="event-details">
+                    <h3>Music Concert</h3>
+                    <p>📍 Venue: Hyderabad Stadium</p>
+                    <p>🕒 Time: 7:00 PM</p>
+                    <p>🎫 Ticket Price: ₹999</p>
+                </div>
+
+                <button class="book-btn">Book Ticket</button>
+            </div>
+
+            <!-- Event 2 -->
+            <div class="event-card">
+                <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba"
+                    alt="Movie">
+
+                <div class="event-details">
+                    <h3>Movie Night</h3>
+                    <p>📍 Venue: PVR Cinemas</p>
+                    <p>🕒 Time: 9:00 PM</p>
+                    <p>🎫 Ticket Price: ₹499</p>
+                </div>
+
+                <button class="book-btn">Book Ticket</button>
+            </div>
+
+            <!-- Event 3 -->
+            <div class="event-card">
+                <img src="https://images.unsplash.com/photo-1547347298-4074fc3086f0"
+                    alt="Sports">
+
+                <div class="event-details">
+                    <h3>Cricket Match</h3>
+                    <p>📍 Venue: Chennai Stadium</p>
+                    <p>🕒 Time: 6:30 PM</p>
+                    <p>🎫 Ticket Price: ₹1499</p>
+                </div>
+
+                <button class="book-btn">Book Ticket</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Ticket Booking Website | All Rights Reserved</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Ticket Booking</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        header {
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: yellow;
+        }
+
+        /* Main Container */
+        .container {
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Event Cards */
+        .event-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .event-card {
+            background-color: white;
+            width: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .event-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .event-details {
+            padding: 15px;
+        }
+
+        .event-details h3 {
+            color: #007BFF;
+        }
+
+        /* Buttons */
+        .book-btn,
+        .details-btn,
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .book-btn {
+            background-color: #007BFF;
+        }
+
+        .details-btn {
+            background-color: #28a745;
+        }
+
+        .submit-btn {
+            background-color: #111;
+            margin-top: 10px;
+        }
+
+        .book-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .details-btn:hover {
+            background-color: #1e7e34;
+        }
+
+        /* Hidden Details */
+        .extra-details {
+            display: none;
+            padding: 10px 15px;
+            background-color: #f9f9f9;
+        }
+
+        /* Booking Form */
+        .booking-form {
+            background-color: white;
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .booking-form input,
+        .booking-form select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Online Ticket Booking</h1>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Events</a>
+            <a href="#">Booking</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Events -->
+    <div class="container">
+
+        <h2>Upcoming Events</h2>
+
+        <div class="event-container">
+
+            <!-- Event Card -->
+            <div class="event-card">
+
+                <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a"
+                    alt="Concert">
+
+                <div class="event-details">
+                    <h3>Music Concert</h3>
+                    <p>📍 Hyderabad Stadium</p>
+                    <p>🕒 7:00 PM</p>
+                    <p>🎫 ₹999</p>
+                </div>
+
+                <!-- Hidden Details -->
+                <div class="extra-details">
+                    <p>Special live performance by famous singers.</p>
+                </div>
+
+                <button class="details-btn"
+                    onclick="toggleDetails(this)">
+                    Show Details
+                </button>
+
+                <button class="book-btn"
+                    onclick="bookTicket(this)">
+                    Book Ticket
+                </button>
+
+            </div>
+
+            <!-- Event Card -->
+            <div class="event-card">
+
+                <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba"
+                    alt="Movie">
+
+                <div class="event-details">
+                    <h3>Movie Night</h3>
+                    <p>📍 PVR Cinemas</p>
+                    <p>🕒 9:00 PM</p>
+                    <p>🎫 ₹499</p>
+                </div>
+
+                <div class="extra-details">
+                    <p>Enjoy latest blockbuster movie with friends.</p>
+                </div>
+
+                <button class="details-btn"
+                    onclick="toggleDetails(this)">
+                    Show Details
+                </button>
+
+                <button class="book-btn"
+                    onclick="bookTicket(this)">
+                    Book Ticket
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- Booking Form -->
+        <div class="booking-form">
+
+            <h2>Book Your Tickets</h2>
+
+            <form onsubmit="return validateForm()">
+
+                <label>Name</label>
+                <input type="text" id="name">
+
+                <label>Email</label>
+                <input type="email" id="email">
+
+                <label>Select Event</label>
+                <select id="event">
+                    <option value="">-- Choose Event --</option>
+                    <option>Music Concert</option>
+                    <option>Movie Night</option>
+                </select>
+
+                <label>Number of Tickets</label>
+                <input type="number" id="tickets">
+
+                <button type="submit" class="submit-btn">
+                    Confirm Booking
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Ticket Booking Website | All Rights Reserved</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+
+        // Book Button Interaction
+        function bookTicket(button) {
+
+            button.innerHTML = "Booked ✓";
+            button.style.backgroundColor = "green";
+        }
+
+        // Show / Hide Details
+        function toggleDetails(button) {
+
+            let details =
+                button.previousElementSibling;
+
+            if (details.style.display === "block") {
+
+                details.style.display = "none";
+                button.innerHTML = "Show Details";
+
+            } else {
+
+                details.style.display = "block";
+                button.innerHTML = "Hide Details";
+            }
+        }
+
+        // Form Validation
+        function validateForm() {
+
+            let name =
+                document.getElementById("name").value;
+
+            let email =
+                document.getElementById("email").value;
+
+            let event =
+                document.getElementById("event").value;
+
+            let tickets =
+                document.getElementById("tickets").value;
+
+            if (name === "" ||
+                email === "" ||
+                event === "" ||
+                tickets === "") {
+
+                alert("Please fill all fields!");
+
+                return false;
+            }
+
+            alert("Booking Successful!");
+
+            return true;
+        }
+
+    </script>
+
+</body>
+
+</html>
